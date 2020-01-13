@@ -12,14 +12,18 @@
     <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
 
     <!--
-    Most controllers will use the ControllerClassNameHandlerMapping above, but
-    for the index controller we are using ParameterizableViewController, so we must
-    define an explicit mapping for it.
+    
+    La mayoría de los controladores usarán el ControllerClassNameHandlerMapping anterior, pero
+    para el controlador de índice y nuestras vistas estamos usando ParameterizableViewController, por lo que debemos
+    definir un mapeo explícito para ello.
     -->
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
+                <!-- Ahora hacemos que cuando llamemos a nuestras vistas vaya a esas páginas de Controlador-->
                 <prop key="index.htm">indexController</prop>
+                <prop key="listado.htm">listadoController</prop>
+                <prop key="alta.htm">altaController</prop>
             </props>
         </property>
     </bean>
@@ -30,10 +34,12 @@
           p:suffix=".jsp" />
 
     <!--
-    The index controller.
+    Aquí introducimos el Controller para mapearlos explícitamente
     -->
     <bean name="indexController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />
+    <bean name="listadoController" class="Controllers.listadoController" />
+    <bean name="altaController" class="Controllers.altaController" />
 
 </beans>

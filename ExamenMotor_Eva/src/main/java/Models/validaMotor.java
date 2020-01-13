@@ -1,17 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Models;
 
 import org.springframework.validation.Errors;
-import org.springframework.validation.ValidationUtils;
+
 import org.springframework.validation.Validator;
 
 
 
-
+//Para crear nuestra clase ValidaMotor debemos implmentar la interface Validator que nos obliga a añadir sus métodos abstractos
 public class validaMotor implements Validator{
 
     @Override
@@ -19,6 +15,9 @@ public class validaMotor implements Validator{
        return Motor.class.isAssignableFrom(type);
     }
 
+    
+    //Este método nos valida el objeto que le pasemos al cual tenemos que hacer un downcasting y programar lo que queremos validar 
+    // para así si tenemos un dato que no lo cumple nos saldrá un error que podremos enviar a la vista.
     @Override
     public void validate(Object o, Errors errors) {
         Motor m=(Motor)o;
@@ -38,10 +37,11 @@ public class validaMotor implements Validator{
         }
         if(m.getCantidad()<0)
         {
-            errors.rejectValue("peso","verificapeso","El peso debe ser supeior a 0");
+            errors.rejectValue("cantidad","verificacantidad","La cantidad debe ser postiva o 0");
         }
         
     }
+   
    
 
     

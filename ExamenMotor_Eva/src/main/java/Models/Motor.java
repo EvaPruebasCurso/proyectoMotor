@@ -1,18 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Models;
 
-/**
- *
- * @author Pc
- */
+
+//Creamos nuestra clase Motor, porque en la Base de datos tenemos una tabla motores con las características que pondremos a continuación
+// por lo tanto en nuestra clase tenemos que crearnos esas propiedades y crear objetos de tipo Motor
 public class Motor {
     private String modelo, fabricante;
     private int potencia,peso,cantidad;
 
+    //Creamos un constructor vacío para poder rellenarlo y uno normal
     public Motor() {
     }
 
@@ -24,6 +20,7 @@ public class Motor {
         this.cantidad = cantidad;
     }
 
+    //A continuación van los getters y setters para poder manipular el objeto de tipo Motor
     public String getModelo() {
         return modelo;
     }
